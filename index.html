@@ -295,36 +295,285 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:64px 4
 .fade-up.visible{opacity:1;transform:translateY(0)}
 
 /* ── LANG ── */
-[data-en],[data-es]{display:none}
-.lang-en [data-en]{display:block}
-.lang-en span[data-en]{display:inline}
-.lang-en [data-es]{display:none}
-.lang-es [data-es]{display:block}
-.lang-es span[data-es]{display:inline}
-.lang-es [data-en]{display:none}
+/* ── LANGUAGE SYSTEM ── */
+/* Hide all translatable elements by default */
+[data-en],[data-es],[data-zh]{display:none}
 
-/* Chinese language support */
+/* English active */
+.lang-en [data-en]{display:block}
+.lang-en [data-es]{display:none}
+.lang-en [data-zh]{display:none}
+
+/* Spanish active */
+.lang-es [data-es]{display:block}
+.lang-es [data-en]{display:none}
+.lang-es [data-zh]{display:none}
+
+/* Chinese active */
 .lang-zh [data-zh]{display:block}
-.lang-zh span[data-zh]{display:inline}
 .lang-zh [data-en]{display:none}
 .lang-zh [data-es]{display:none}
-.lang-zh th span[data-en],.lang-zh td span[data-en],.lang-zh a span[data-en],.lang-zh div span[data-en],.lang-zh p span[data-en]{display:none}
-.lang-zh th span[data-es],.lang-zh td span[data-es],.lang-zh a span[data-es],.lang-zh div span[data-es],.lang-zh p span[data-es]{display:none}
-.lang-zh th span[data-zh],.lang-zh td span[data-zh],.lang-zh a span[data-zh],.lang-zh div span[data-zh],.lang-zh p span[data-zh]{display:inline}
 
-/* Fix span display inside table cells and inline elements */
-.lang-en th span[data-en], .lang-en td span[data-en],
-.lang-en a span[data-en], .lang-en div span[data-en],
-.lang-en p span[data-en] { display: inline; }
-.lang-en th span[data-es], .lang-en td span[data-es],
-.lang-en a span[data-es], .lang-en div span[data-es],
-.lang-en p span[data-es] { display: none; }
-.lang-es th span[data-es], .lang-es td span[data-es],
-.lang-es a span[data-es], .lang-es div span[data-es],
-.lang-es p span[data-es] { display: inline; }
-.lang-es th span[data-en], .lang-es td span[data-en],
-.lang-es a span[data-en], .lang-es div span[data-en],
-.lang-es p span[data-en] { display: none; }
+/* Inline elements (span, strong, etc.) inside ANY container */
+.lang-en *[data-en]{display:inline}
+.lang-en *[data-es]{display:none}
+.lang-en *[data-zh]{display:none}
+
+.lang-es *[data-es]{display:inline}
+.lang-es *[data-en]{display:none}
+.lang-es *[data-zh]{display:none}
+
+.lang-zh *[data-zh]{display:inline}
+.lang-zh *[data-en]{display:none}
+.lang-zh *[data-es]{display:none}
+
+/* Block-level overrides for section-level elements */
+.lang-en h1[data-en],.lang-en h2[data-en],.lang-en h3[data-en],
+.lang-en p[data-en],.lang-en div[data-en],.lang-en li[data-en]{display:block}
+.lang-en h1[data-es],.lang-en h2[data-es],.lang-en h3[data-es],
+.lang-en p[data-es],.lang-en div[data-es],.lang-en li[data-es]{display:none}
+.lang-en h1[data-zh],.lang-en h2[data-zh],.lang-en h3[data-zh],
+.lang-en p[data-zh],.lang-en div[data-zh],.lang-en li[data-zh]{display:none}
+
+.lang-es h1[data-es],.lang-es h2[data-es],.lang-es h3[data-es],
+.lang-es p[data-es],.lang-es div[data-es],.lang-es li[data-es]{display:block}
+.lang-es h1[data-en],.lang-es h2[data-en],.lang-es h3[data-en],
+.lang-es p[data-en],.lang-es div[data-en],.lang-es li[data-en]{display:none}
+.lang-es h1[data-zh],.lang-es h2[data-zh],.lang-es h3[data-zh],
+.lang-es p[data-zh],.lang-es div[data-zh],.lang-es li[data-zh]{display:none}
+
+.lang-zh h1[data-zh],.lang-zh h2[data-zh],.lang-zh h3[data-zh],
+.lang-zh p[data-zh],.lang-zh div[data-zh],.lang-zh li[data-zh]{display:block}
+.lang-zh h1[data-en],.lang-zh h2[data-en],.lang-zh h3[data-en],
+.lang-zh p[data-en],.lang-zh div[data-en],.lang-zh li[data-en]{display:none}
+.lang-zh h1[data-es],.lang-zh h2[data-es],.lang-zh h3[data-es],
+.lang-zh p[data-es],.lang-zh div[data-es],.lang-zh li[data-es]{display:none}
+
+/* Class-specific overrides to ensure correct display */
+.lang-en .s-label[data-en],.lang-en .s-desc[data-en],.lang-en .hero-desc[data-en],
+.lang-en .chart-title[data-en],.lang-en .chart-sub[data-en],
+.lang-en .kpi-label[data-en],.lang-en .kpi-sub[data-en],
+.lang-en .swot-label[data-en],.lang-en .year-num[data-en],
+.lang-en .year-name[data-en],.lang-en .yr-section-label[data-en],
+.lang-en .roadmap-phase-num[data-en],.lang-en .roadmap-phase-title[data-en],
+.lang-en .roadmap-phase-period[data-en],.lang-en .sug-title[data-en],
+.lang-en .sug-count[data-en],.lang-en .footer-col-title[data-en] {display:block}
+
+.lang-en .s-label[data-es],.lang-en .s-desc[data-es],.lang-en .hero-desc[data-es],
+.lang-en .chart-title[data-es],.lang-en .chart-sub[data-es],
+.lang-en .kpi-label[data-es],.lang-en .kpi-sub[data-es],
+.lang-en .swot-label[data-es],.lang-en .year-num[data-es],
+.lang-en .year-name[data-es],.lang-en .yr-section-label[data-es],
+.lang-en .roadmap-phase-num[data-es],.lang-en .roadmap-phase-title[data-es],
+.lang-en .roadmap-phase-period[data-es],.lang-en .sug-title[data-es],
+.lang-en .sug-count[data-es],.lang-en .footer-col-title[data-es] {display:none!important}
+
+.lang-en .s-label[data-zh],.lang-en .s-desc[data-zh],.lang-en .hero-desc[data-zh],
+.lang-en .chart-title[data-zh],.lang-en .chart-sub[data-zh],
+.lang-en .kpi-label[data-zh],.lang-en .kpi-sub[data-zh],
+.lang-en .swot-label[data-zh],.lang-en .year-num[data-zh],
+.lang-en .year-name[data-zh],.lang-en .yr-section-label[data-zh],
+.lang-en .roadmap-phase-num[data-zh],.lang-en .roadmap-phase-title[data-zh],
+.lang-en .roadmap-phase-period[data-zh],.lang-en .sug-title[data-zh],
+.lang-en .sug-count[data-zh],.lang-en .footer-col-title[data-zh] {display:none!important}
+
+.lang-es .s-label[data-es],.lang-es .s-desc[data-es],.lang-es .hero-desc[data-es],
+.lang-es .chart-title[data-es],.lang-es .chart-sub[data-es],
+.lang-es .kpi-label[data-es],.lang-es .kpi-sub[data-es],
+.lang-es .swot-label[data-es],.lang-es .year-num[data-es],
+.lang-es .year-name[data-es],.lang-es .yr-section-label[data-es],
+.lang-es .roadmap-phase-num[data-es],.lang-es .roadmap-phase-title[data-es],
+.lang-es .roadmap-phase-period[data-es],.lang-es .sug-title[data-es],
+.lang-es .sug-count[data-es],.lang-es .footer-col-title[data-es] {display:block}
+
+.lang-es .s-label[data-en],.lang-es .s-desc[data-en],.lang-es .hero-desc[data-en],
+.lang-es .chart-title[data-en],.lang-es .chart-sub[data-en],
+.lang-es .kpi-label[data-en],.lang-es .kpi-sub[data-en],
+.lang-es .swot-label[data-en],.lang-es .year-num[data-en],
+.lang-es .year-name[data-en],.lang-es .yr-section-label[data-en],
+.lang-es .roadmap-phase-num[data-en],.lang-es .roadmap-phase-title[data-en],
+.lang-es .roadmap-phase-period[data-en],.lang-es .sug-title[data-en],
+.lang-es .sug-count[data-en],.lang-es .footer-col-title[data-en] {display:none!important}
+
+.lang-es .s-label[data-zh],.lang-es .s-desc[data-zh],.lang-es .hero-desc[data-zh],
+.lang-es .chart-title[data-zh],.lang-es .chart-sub[data-zh],
+.lang-es .kpi-label[data-zh],.lang-es .kpi-sub[data-zh],
+.lang-es .swot-label[data-zh],.lang-es .year-num[data-zh],
+.lang-es .year-name[data-zh],.lang-es .yr-section-label[data-zh],
+.lang-es .roadmap-phase-num[data-zh],.lang-es .roadmap-phase-title[data-zh],
+.lang-es .roadmap-phase-period[data-zh],.lang-es .sug-title[data-zh],
+.lang-es .sug-count[data-zh],.lang-es .footer-col-title[data-zh] {display:none!important}
+
+.lang-zh .s-label[data-zh],.lang-zh .s-desc[data-zh],.lang-zh .hero-desc[data-zh],
+.lang-zh .chart-title[data-zh],.lang-zh .chart-sub[data-zh],
+.lang-zh .kpi-label[data-zh],.lang-zh .kpi-sub[data-zh],
+.lang-zh .swot-label[data-zh],.lang-zh .year-num[data-zh],
+.lang-zh .year-name[data-zh],.lang-zh .yr-section-label[data-zh],
+.lang-zh .roadmap-phase-num[data-zh],.lang-zh .roadmap-phase-title[data-zh],
+.lang-zh .roadmap-phase-period[data-zh],.lang-zh .sug-title[data-zh],
+.lang-zh .sug-count[data-zh],.lang-zh .footer-col-title[data-zh] {display:block}
+
+.lang-zh .s-label[data-en],.lang-zh .s-desc[data-en],.lang-zh .hero-desc[data-en],
+.lang-zh .chart-title[data-en],.lang-zh .chart-sub[data-en],
+.lang-zh .kpi-label[data-en],.lang-zh .kpi-sub[data-en],
+.lang-zh .swot-label[data-en],.lang-zh .year-num[data-en],
+.lang-zh .year-name[data-en],.lang-zh .yr-section-label[data-en],
+.lang-zh .roadmap-phase-num[data-en],.lang-zh .roadmap-phase-title[data-en],
+.lang-zh .roadmap-phase-period[data-en],.lang-zh .sug-title[data-en],
+.lang-zh .sug-count[data-en],.lang-zh .footer-col-title[data-en] {display:none!important}
+
+.lang-zh .s-label[data-es],.lang-zh .s-desc[data-es],.lang-zh .hero-desc[data-es],
+.lang-zh .chart-title[data-es],.lang-zh .chart-sub[data-es],
+.lang-zh .kpi-label[data-es],.lang-zh .kpi-sub[data-es],
+.lang-zh .swot-label[data-es],.lang-zh .year-num[data-es],
+.lang-zh .year-name[data-es],.lang-zh .yr-section-label[data-es],
+.lang-zh .roadmap-phase-num[data-es],.lang-zh .roadmap-phase-title[data-es],
+.lang-zh .roadmap-phase-period[data-es],.lang-zh .sug-title[data-es],
+.lang-zh .sug-count[data-es],.lang-zh .footer-col-title[data-es] {display:none!important}
+
+/* h2 specifically */
+.lang-en h2[data-en]{display:block}.lang-en h2[data-es]{display:none!important}.lang-en h2[data-zh]{display:none!important}
+.lang-es h2[data-es]{display:block}.lang-es h2[data-en]{display:none!important}.lang-es h2[data-zh]{display:none!important}
+.lang-zh h2[data-zh]{display:block}.lang-zh h2[data-en]{display:none!important}.lang-zh h2[data-es]{display:none!important}
+
+/* Additional block elements */
+.lang-en .stat-label[data-en],.lang-en .footer-desc[data-en],.lang-en .year-units span[data-en]{display:block}
+.lang-en .stat-label[data-es],.lang-en .footer-desc[data-es],.lang-en .year-units span[data-es]{display:none!important}
+.lang-en .stat-label[data-zh],.lang-en .footer-desc[data-zh],.lang-en .year-units span[data-zh]{display:none!important}
+
+.lang-es .stat-label[data-es],.lang-es .footer-desc[data-es],.lang-es .year-units span[data-es]{display:block}
+.lang-es .stat-label[data-en],.lang-es .footer-desc[data-en],.lang-es .year-units span[data-en]{display:none!important}
+.lang-es .stat-label[data-zh],.lang-es .footer-desc[data-zh],.lang-es .year-units span[data-zh]{display:none!important}
+
+.lang-zh .stat-label[data-zh],.lang-zh .footer-desc[data-zh],.lang-zh .year-units span[data-zh]{display:block}
+.lang-zh .stat-label[data-en],.lang-zh .footer-desc[data-en],.lang-zh .year-units span[data-en]{display:none!important}
+.lang-zh .stat-label[data-es],.lang-zh .footer-desc[data-es],.lang-zh .year-units span[data-es]{display:none!important}
+
+/* year-units span is inline by nature */
+.lang-en .year-units span[data-en]{display:inline}
+.lang-es .year-units span[data-es]{display:inline}
+.lang-zh .year-units span[data-zh]{display:inline}
+
+/* hero eyebrow span */
+.lang-en .hero-eyebrow span[data-en]{display:inline}
+.lang-en .hero-eyebrow span[data-es]{display:none!important}
+.lang-en .hero-eyebrow span[data-zh]{display:none!important}
+.lang-es .hero-eyebrow span[data-es]{display:inline}
+.lang-es .hero-eyebrow span[data-en]{display:none!important}
+.lang-es .hero-eyebrow span[data-zh]{display:none!important}
+.lang-zh .hero-eyebrow span[data-zh]{display:inline}
+.lang-zh .hero-eyebrow span[data-en]{display:none!important}
+.lang-zh .hero-eyebrow span[data-es]{display:none!important}
+
+/* hero sub span */
+.lang-en .hero-title span.sub[data-en]{display:block}
+.lang-en .hero-title span.sub[data-es]{display:none!important}
+.lang-en .hero-title span.sub[data-zh]{display:none!important}
+.lang-es .hero-title span.sub[data-es]{display:block}
+.lang-es .hero-title span.sub[data-en]{display:none!important}
+.lang-es .hero-title span.sub[data-zh]{display:none!important}
+.lang-zh .hero-title span.sub[data-zh]{display:block}
+.lang-zh .hero-title span.sub[data-en]{display:none!important}
+.lang-zh .hero-title span.sub[data-es]{display:none!important}
+
+/* insight strong and span */
+.lang-en .insight strong[data-en]{display:inline}.lang-en .insight strong[data-es]{display:none!important}.lang-en .insight strong[data-zh]{display:none!important}
+.lang-en .insight span[data-en]{display:inline}.lang-en .insight span[data-es]{display:none!important}.lang-en .insight span[data-zh]{display:none!important}
+.lang-es .insight strong[data-es]{display:inline}.lang-es .insight strong[data-en]{display:none!important}.lang-es .insight strong[data-zh]{display:none!important}
+.lang-es .insight span[data-es]{display:inline}.lang-es .insight span[data-en]{display:none!important}.lang-es .insight span[data-zh]{display:none!important}
+.lang-zh .insight strong[data-zh]{display:inline}.lang-zh .insight strong[data-en]{display:none!important}.lang-zh .insight strong[data-es]{display:none!important}
+.lang-zh .insight span[data-zh]{display:inline}.lang-zh .insight span[data-en]{display:none!important}.lang-zh .insight span[data-es]{display:none!important}
+
+/* yr-tag spans */
+.lang-en .yr-tag[data-en]{display:inline-block}.lang-en .yr-tag[data-es]{display:none!important}.lang-en .yr-tag[data-zh]{display:none!important}
+.lang-es .yr-tag[data-es]{display:inline-block}.lang-es .yr-tag[data-en]{display:none!important}.lang-es .yr-tag[data-zh]{display:none!important}
+.lang-zh .yr-tag[data-zh]{display:inline-block}.lang-zh .yr-tag[data-en]{display:none!important}.lang-zh .yr-tag[data-es]{display:none!important}
+
+/* badge spans in revenue table */
+.lang-en .badge[data-en]{display:inline-block}.lang-en .badge[data-es]{display:none!important}.lang-en .badge[data-zh]{display:none!important}
+.lang-es .badge[data-es]{display:inline-block}.lang-es .badge[data-en]{display:none!important}.lang-es .badge[data-zh]{display:none!important}
+.lang-zh .badge[data-zh]{display:inline-block}.lang-zh .badge[data-en]{display:none!important}.lang-zh .badge[data-es]{display:none!important}
+
+/* roadmap item spans */
+.lang-en .roadmap-item span[data-en]{display:inline}.lang-en .roadmap-item span[data-es]{display:none!important}.lang-en .roadmap-item span[data-zh]{display:none!important}
+.lang-es .roadmap-item span[data-es]{display:inline}.lang-es .roadmap-item span[data-en]{display:none!important}.lang-es .roadmap-item span[data-zh]{display:none!important}
+.lang-zh .roadmap-item span[data-zh]{display:inline}.lang-zh .roadmap-item span[data-en]{display:none!important}.lang-zh .roadmap-item span[data-es]{display:none!important}
+
+/* si-tag spans inside suggestions */
+.lang-en .si-tag[data-en]{display:inline-block}.lang-en .si-tag[data-es]{display:none!important}.lang-en .si-tag[data-zh]{display:none!important}
+.lang-es .si-tag[data-es]{display:inline-block}.lang-es .si-tag[data-en]{display:none!important}.lang-es .si-tag[data-zh]{display:none!important}
+.lang-zh .si-tag[data-zh]{display:inline-block}.lang-zh .si-tag[data-en]{display:none!important}.lang-zh .si-tag[data-es]{display:none!important}
+
+/* footer bottom spans */
+.lang-en .footer-bottom span[data-en]{display:inline}.lang-en .footer-bottom span[data-es]{display:none!important}.lang-en .footer-bottom span[data-zh]{display:none!important}
+.lang-es .footer-bottom span[data-es]{display:inline}.lang-es .footer-bottom span[data-en]{display:none!important}.lang-es .footer-bottom span[data-zh]{display:none!important}
+.lang-zh .footer-bottom span[data-zh]{display:inline}.lang-zh .footer-bottom span[data-en]{display:none!important}.lang-zh .footer-bottom span[data-es]{display:none!important}
+
+/* footer-tag spans */
+.lang-en .footer-tag span[data-en]{display:inline}.lang-en .footer-tag span[data-es]{display:none!important}.lang-en .footer-tag span[data-zh]{display:none!important}
+.lang-es .footer-tag span[data-es]{display:inline}.lang-es .footer-tag span[data-en]{display:none!important}.lang-es .footer-tag span[data-zh]{display:none!important}
+.lang-zh .footer-tag span[data-zh]{display:inline}.lang-zh .footer-tag span[data-en]{display:none!important}.lang-zh .footer-tag span[data-es]{display:none!important}
+
+/* footer-logo span */
+.lang-en .footer-logo span[data-en]{display:inline}.lang-en .footer-logo span[data-es]{display:none!important}.lang-en .footer-logo span[data-zh]{display:none!important}
+.lang-es .footer-logo span[data-es]{display:inline}.lang-es .footer-logo span[data-en]{display:none!important}.lang-es .footer-logo span[data-zh]{display:none!important}
+.lang-zh .footer-logo span[data-zh]{display:inline}.lang-zh .footer-logo span[data-en]{display:none!important}.lang-zh .footer-logo span[data-es]{display:none!important}
+
+/* nav-badge span */
+.lang-en .nav-badge span[data-en]{display:inline}.lang-en .nav-badge span[data-es]{display:none!important}.lang-en .nav-badge span[data-zh]{display:none!important}
+.lang-es .nav-badge span[data-es]{display:inline}.lang-es .nav-badge span[data-en]{display:none!important}.lang-es .nav-badge span[data-zh]{display:none!important}
+.lang-zh .nav-badge span[data-zh]{display:inline}.lang-zh .nav-badge span[data-en]{display:none!important}.lang-zh .nav-badge span[data-es]{display:none!important}
+
+/* swot-item li - override for list items */
+.lang-en .swot-item span[data-en]{display:inline}.lang-en .swot-item span[data-es]{display:none!important}.lang-en .swot-item span[data-zh]{display:none!important}
+.lang-es .swot-item span[data-es]{display:inline}.lang-es .swot-item span[data-en]{display:none!important}.lang-es .swot-item span[data-zh]{display:none!important}
+.lang-zh .swot-item span[data-zh]{display:inline}.lang-zh .swot-item span[data-en]{display:none!important}.lang-zh .swot-item span[data-es]{display:none!important}
+
+/* fourp-text strong and span */
+.lang-en .fourp-text strong[data-en]{display:inline}.lang-en .fourp-text strong[data-es]{display:none!important}.lang-en .fourp-text strong[data-zh]{display:none!important}
+.lang-en .fourp-text span[data-en]{display:inline}.lang-en .fourp-text span[data-es]{display:none!important}.lang-en .fourp-text span[data-zh]{display:none!important}
+.lang-es .fourp-text strong[data-es]{display:inline}.lang-es .fourp-text strong[data-en]{display:none!important}.lang-es .fourp-text strong[data-zh]{display:none!important}
+.lang-es .fourp-text span[data-es]{display:inline}.lang-es .fourp-text span[data-en]{display:none!important}.lang-es .fourp-text span[data-zh]{display:none!important}
+.lang-zh .fourp-text strong[data-zh]{display:inline}.lang-zh .fourp-text strong[data-en]{display:none!important}.lang-zh .fourp-text strong[data-es]{display:none!important}
+.lang-zh .fourp-text span[data-zh]{display:inline}.lang-zh .fourp-text span[data-en]{display:none!important}.lang-zh .fourp-text span[data-es]{display:none!important}
+
+/* si-text strong and span */
+.lang-en .si-text strong[data-en]{display:inline}.lang-en .si-text strong[data-es]{display:none!important}.lang-en .si-text strong[data-zh]{display:none!important}
+.lang-en .si-text span[data-en]{display:inline}.lang-en .si-text span[data-es]{display:none!important}.lang-en .si-text span[data-zh]{display:none!important}
+.lang-es .si-text strong[data-es]{display:inline}.lang-es .si-text strong[data-en]{display:none!important}.lang-es .si-text strong[data-zh]{display:none!important}
+.lang-es .si-text span[data-es]{display:inline}.lang-es .si-text span[data-en]{display:none!important}.lang-es .si-text span[data-zh]{display:none!important}
+.lang-zh .si-text strong[data-zh]{display:inline}.lang-zh .si-text strong[data-en]{display:none!important}.lang-zh .si-text strong[data-es]{display:none!important}
+.lang-zh .si-text span[data-zh]{display:inline}.lang-zh .si-text span[data-en]{display:none!important}.lang-zh .si-text span[data-es]{display:none!important}
+
+/* table th span */
+.lang-en th span[data-en]{display:inline}.lang-en th span[data-es]{display:none!important}.lang-en th span[data-zh]{display:none!important}
+.lang-es th span[data-es]{display:inline}.lang-es th span[data-en]{display:none!important}.lang-es th span[data-zh]{display:none!important}
+.lang-zh th span[data-zh]{display:inline}.lang-zh th span[data-en]{display:none!important}.lang-zh th span[data-es]{display:none!important}
+
+/* table grp-hd td span */
+.lang-en .grp-hd td span[data-en]{display:inline}.lang-en .grp-hd td span[data-es]{display:none!important}.lang-en .grp-hd td span[data-zh]{display:none!important}
+.lang-es .grp-hd td span[data-es]{display:inline}.lang-es .grp-hd td span[data-en]{display:none!important}.lang-es .grp-hd td span[data-zh]{display:none!important}
+.lang-zh .grp-hd td span[data-zh]{display:inline}.lang-zh .grp-hd td span[data-en]{display:none!important}.lang-zh .grp-hd td span[data-es]{display:none!important}
+
+/* tfoot td span */
+.lang-en tfoot td span[data-en]{display:inline}.lang-en tfoot td span[data-es]{display:none!important}.lang-en tfoot td span[data-zh]{display:none!important}
+.lang-es tfoot td span[data-es]{display:inline}.lang-es tfoot td span[data-en]{display:none!important}.lang-es tfoot td span[data-zh]{display:none!important}
+.lang-zh tfoot td span[data-zh]{display:inline}.lang-zh tfoot td span[data-en]{display:none!important}.lang-zh tfoot td span[data-es]{display:none!important}
+
+/* market-table td.t-origin span */
+.lang-en .t-origin span[data-en]{display:inline}.lang-en .t-origin span[data-es]{display:none!important}.lang-en .t-origin span[data-zh]{display:none!important}
+.lang-es .t-origin span[data-es]{display:inline}.lang-es .t-origin span[data-en]{display:none!important}.lang-es .t-origin span[data-zh]{display:none!important}
+.lang-zh .t-origin span[data-zh]{display:inline}.lang-zh .t-origin span[data-en]{display:none!important}.lang-zh .t-origin span[data-es]{display:none!important}
+
+/* footer-item span */
+.lang-en .footer-item span[data-en]{display:inline}.lang-en .footer-item span[data-es]{display:none!important}.lang-en .footer-item span[data-zh]{display:none!important}
+.lang-es .footer-item span[data-es]{display:inline}.lang-es .footer-item span[data-en]{display:none!important}.lang-es .footer-item span[data-zh]{display:none!important}
+.lang-zh .footer-item span[data-zh]{display:inline}.lang-zh .footer-item span[data-en]{display:none!important}.lang-zh .footer-item span[data-es]{display:none!important}
+
+/* footer-col-title span */
+.lang-en .footer-col-title span[data-en]{display:inline}.lang-en .footer-col-title span[data-es]{display:none!important}.lang-en .footer-col-title span[data-zh]{display:none!important}
+.lang-es .footer-col-title span[data-es]{display:inline}.lang-es .footer-col-title span[data-en]{display:none!important}.lang-es .footer-col-title span[data-zh]{display:none!important}
+.lang-zh .footer-col-title span[data-zh]{display:inline}.lang-zh .footer-col-title span[data-en]{display:none!important}.lang-zh .footer-col-title span[data-es]{display:none!important}
 </style>
 </head>
 <body class="lang-en">
@@ -337,7 +586,7 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:64px 4
     <a href="#players"><span data-en>Competitors</span><span data-es>Competidores</span><span data-zh>竞争格局</span></a>
     <a href="#prices"><span data-en>Prices</span><span data-es>Precios</span><span data-zh>价格</span></a>
     <a href="#strategy"><span data-en>Strategy</span><span data-es>Estrategia</span><span data-zh>战略</span></a>
-    <a href="#plan">Plan</a>
+    <a href="#plan"><span data-en>Plan</span><span data-es>Plan</span><span data-zh>计划</span></a>
     <a href="#suggestions"><span data-en>Suggestions</span><span data-es>Sugerencias</span><span data-zh>建议</span></a>
   </div>
   <div class="lang-toggle">
